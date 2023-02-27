@@ -1,13 +1,14 @@
+version: "3.9"
+
 services:
   web:
-    container_name: web_server
+    container_name: web-server
     image: nginx:1.23.3-alpine
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - ./conf.d:/etc/nginx/conf.d:ro
       - ./html:/usr/share/nginx/html:ro
-      # If you generate ssl or set its then, uncomment below lines (The path of SSL keys)
-      # - ../etc/ssl/certs/dhparam.pem:/etc/ssl/certs/dhparam.pem:ro
-      # - ../etc/ssl/certs/domains:/etc/ssl/certs/domains:ro
-      # - ../etc/ssl/certs/archive:/etc/ssl/certs/archive:ro
+      - ../etc/ssl/certs/dhparam.pem:/etc/ssl/certs/dhparam.pem:ro
+      - ../etc/ssl/certs/domains:/etc/ssl/certs/domains:ro
+      - ../etc/ssl/certs/archive:/etc/ssl/certs/archive:ro
     network_mode: host

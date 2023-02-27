@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 if [ $# -gt 0 ]; then
     # If we passed a command, run it
