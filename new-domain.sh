@@ -80,4 +80,4 @@ server {
 
 fi
 
-docker exec -it web-server sh nginx -s reload
+docker exec -it web-server nginx -s reload
