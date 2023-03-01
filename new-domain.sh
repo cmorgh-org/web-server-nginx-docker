@@ -19,6 +19,8 @@ echo "server {
     index index.html;
 }" >> ./conf.d/$1.conf
 
+docker exec -it web-server nginx -s reload
+
 
 if [[ $2 == '--with-ssl' ]]; then
 
@@ -78,6 +80,6 @@ server {
     }
 }" >> ./conf.d/$1.ssl.conf
 
-fi
-
 docker exec -it web-server nginx -s reload
+
+fi
