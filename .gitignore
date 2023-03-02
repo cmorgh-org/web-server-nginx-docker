@@ -1,0 +1,7 @@
+/conf.d/*
+!/conf.d/default.conf
+!/conf.d/sslconf
+
+/html/*
+!/html/50x.html
+!/html/index.html

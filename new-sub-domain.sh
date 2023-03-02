@@ -2,7 +2,7 @@
 
 rm ./conf.d/$1.$2.conf
 rm ./conf.d/$1.$2.ssl.conf
-mkdir -p ./html/$1.$2
+mkdir -p ./html/$1.$2/public
 
 echo "server {
     listen       80;

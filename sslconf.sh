@@ -10,29 +10,6 @@ echo "server {
 
     server_name $1 www.$1;
 
-    # For certbot ssl generator configs
-    location ~ /.well-known/acme-challenge {
-        allow all;
-        root /usr/share/nginx/html/$1/public;
-    }
-    root /usr/share/nginx/html/$1/public;
-    index index.html;
-}" >> ./conf.d/$1.conf
-
-docker exec -it web-server nginx -s reload
-
-
-if [[ $2 == '--with-ssl' ]]; then
-
-bash ./genssl.sh $1
-
-rm ./conf.d/$1.conf
-echo "server {
-    listen       80;
-    listen  [::]:80;
-
-    server_name $1 www.$1;
-
     return 301 https://www.$1\$request_uri;
 }" >> ./conf.d/$1.conf
 
@@ -81,5 +58,3 @@ server {
 }" >> ./conf.d/$1.ssl.conf
 
 docker exec -it web-server nginx -s reload
-
-fi
