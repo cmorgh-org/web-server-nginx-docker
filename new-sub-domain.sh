@@ -12,8 +12,7 @@ echo "server {
 
     # For certbot ssl generator configs
     location ~ /.well-known/acme-challenge {
-        allow all;
-        root /usr/share/nginx/html/$1.$2/public;
+        root /usr/share/nginx/html/$2/public;
     }
     root /usr/share/nginx/html/$1.$2/public;
     index index.html;
@@ -29,7 +28,9 @@ echo "server {
 
     server_name $1.$2;
 
-    return 301 https://$1.$2\$request_uri;
+    location {
+        return 301 https://$1.$2\$request_uri;
+    }
 }" >> ./conf.d/$1.$2.conf
 
 echo "server {
@@ -46,8 +47,7 @@ echo "server {
 
     # For certbot ssl generator configs
     location ~ /.well-known/acme-challenge {
-        allow all;
-        root /usr/share/nginx/html/$1.$2/public;
+        root /usr/share/nginx/html/$2/public;
     }
     root /usr/share/nginx/html/$1.$2/public;
     index index.html;
