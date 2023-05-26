@@ -78,8 +78,8 @@ fi; done
 for dir in "${cacheDomains[@]}"; do echo $dir >> $cacheFileLocation; done
 
 # 4- Remove directories in archive-path and domains-path
-for dir in "${cacheDomains[@]}"; do if [[ $dir =~ [[:alnum:],.]{1,} ]]; then rm -rf ./etc/$dir; fi; done
-for dir in "${cacheDomains[@]}"; do if [[ $dir =~ [[:alnum:],.]{1,} ]]; then rm -rf ./etc/$dir; fi; done
+for dir in "${cacheDomains[@]}"; do if [[ $dir =~ [[:alnum:],.]{1,} ]]; then rm -rf ../etc/ssl/certs/archive/$dir; fi; done
+for dir in "${cacheDomains[@]}"; do if [[ $dir =~ [[:alnum:],.]{1,} ]]; then rm -rf ../etc/ssl/certs/domains/$dir; fi; done
 
 # 5- Generate new SSLs
 for domain in "${cacheDomains[@]}"
