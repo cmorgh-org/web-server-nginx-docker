@@ -1,5 +1,7 @@
 #!/bin/sh
 
+mkdir -p ../etc/ssl/certs
+
 if [ $# -gt 0 ]; then
     # If we passed a command, run it
     exec openssl dhparam -out ../etc/ssl/certs/dhparam.pem $1

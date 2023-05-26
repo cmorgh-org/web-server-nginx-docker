@@ -1,3 +1,5 @@
+/.cache
+
 /conf.d/*
 !/conf.d/default.conf
 !/conf.d/sslconf
