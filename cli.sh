@@ -43,10 +43,10 @@ case $COMMAND in
         ;;
 
     5) # Enable renewal SSL generator with <Let's Encrypt Certbot>
-        mkdir -p ./cache
-        echo "0 0 1 * * sh $PWD/renewssl.sh" >> ./cache/.crontab
-        crontab ./cache/.crontab
-        rm -rf ./cache/.crontab
+        mkdir -p ./.cache
+        echo "0 0 1 * * sh $PWD/renewssl.sh" >> ./.cache/.crontab
+        crontab ./.cache/.crontab
+        rm -rf ./.cache/.crontab
         bash ./commands/renewssl.sh
         ;;
 
