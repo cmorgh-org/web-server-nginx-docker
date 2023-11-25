@@ -28,7 +28,12 @@ echo "server {
 
     server_name $1.$2;
 
-    location {
+    # For certbot ssl generator configs
+    location ~ /.well-known/acme-challenge {
+        root /usr/share/nginx/html/$2/public;
+    }
+
+    location / {
         return 301 https://$1.$2\$request_uri;
     }
 }" >> ./conf.d/$1.$2.conf
